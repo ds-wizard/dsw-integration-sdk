@@ -1,6 +1,6 @@
 {
   "name": "@ds-wizard/integration-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An SDK for building integrations for the Data Stewardship Wizard",
   "main": "lib/index.js",
   "directories": {
