@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/lib/index.js"></script>
+    <style>
+        .wrapper {
+            padding: 2rem;
+            margin: 2rem;
+            border: .25rem dashed var(--bs-primary);
+            border-radius: var(--bs-border-radius);
+        }
+    </style>
+    <title>Importer Example</title>
+</head>
+
+<body>
+    <div class="wrapper text-center">
+        <button id="import" class="btn btn-primary">Import</button>
+    </div>
+    <script>
+        const importer = new dsw.Importer()
+
+        importer
+            .init()
+            .then(() => {
+                const importButton = document.getElementById('import')
+                importButton.addEventListener('click', () => {
+                    const chapterUuid = '1e85da40-bbfc-4180-903e-6c569ed2da38'
+                    const contributorListUuid = '73d686bd-7939-412e-8631-502ee6d9ea7b'
+                    
+                    // Add an empty item
+                    importer.addItem([chapterUuid, contributorListUuid])
+
+                    // Add another item but now fill in the contributor's name within the item
+                    const contributorUuid = importer.addItem([chapterUuid, contributorListUuid])
+                    const contributorNameUuid = '6155ad47-3d1e-4488-9f2a-742de1e56580'
+                    importer.setReply(
+                        [chapterUuid, contributorListUuid, contributorUuid, contributorNameUuid],
+                        'Lee Harris'
+                    )
+
+                    // Fill in an integration question for the contributor's affiliation
+                    const contributorAffiliationUuid = '68530470-1f1c-4448-8593-63a288713a66'
+                    importer.setIntegrationReply(
+                        [chapterUuid, contributorListUuid, contributorUuid, contributorAffiliationUuid],
+                        'Czech Technical University in Prague',
+                        'https://ror.org/03kqpb082'
+                    )
+
+
+                    // Send the replies
+                    importer.send()
+                })
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    </script>
+</body>
+
+</html>

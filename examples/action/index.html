@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/lib/index.js"></script>
+    <title>Action Example</title>
+</head>
+
+<body>
+    <div class="container">
+        <p class="mt-3">Action called by user <code id="user-uuid"></code> on project <code id="project-uuid"></code>.</p>
+        <hr>
+        <button id="success" class="btn btn-success">Success</button>
+        <button id="fail" class="btn btn-danger">Fail</button>
+    </div>
+    <script>
+        const action = new dsw.Action()
+
+        action
+            .init()
+            .then((data) => {
+                const userUuid = document.getElementById('user-uuid')
+                const projectUuid = document.getElementById('project-uuid')
+                const successButton = document.getElementById('success')
+                const failButton = document.getElementById('fail')
+
+                userUuid.innerText = data.userUuid
+                projectUuid.innerText = data.projectUuid
+
+                successButton.addEventListener('click', () => {
+                    action.sendResult(true, 'The action was **successful**!')
+                })
+
+                failButton.addEventListener('click', () => {
+                    action.sendResult(false, 'The action failed with error code `1234`.')
+                })
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    </script>
+</body>
+
+</html>
