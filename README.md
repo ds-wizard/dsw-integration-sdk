@@ -53,8 +53,8 @@ const action = new dsw.Action()
 action
     .init()
     .then((data) => {
-        // UUID of the user that performed the action
-        const userUuid = data.userUuid
+        // Auth token of the user that performed the action
+        const userToken = data.userToken
 
         // UUID of the project on which the action was performed
         const projectUuid = data.projectUuid
