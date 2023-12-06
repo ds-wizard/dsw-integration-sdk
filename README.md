@@ -204,7 +204,7 @@ There are examples in this repository. The [simple](examples/simple) example dem
 
 | Integration SDK Version | DSW Version from | DSW Version to |
 | --- | --- | --- |
-| `0.2.0` | `4.1` | `latest` |
+| `1.0.0` | `4.1` | `latest` |
 
 
 
