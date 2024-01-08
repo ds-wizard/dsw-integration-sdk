@@ -196,7 +196,7 @@ const widget = new DSWIntegrationWidget(['biohack.ds-wizard.org', 'demo.ds-wizar
 
 When sending the data to DSW, the `value` is a text value that will be visible for users in DSW, the `id` is the ID of the item that will be used in the item URL in DSW.
 
-There are examples in this repository. The [simple](examples/simple) example demonstrates a basic widget with the selection. The [login](examples/login) demonstrates how we can redirect users to login first and show the widget.
+There are examples in this repository. The [simple](examples/integration-widget/simple) example demonstrates a basic widget with the selection. The [login](examples/integration-widget/login) demonstrates how we can redirect users to login first and show the widget.
 
 
 
