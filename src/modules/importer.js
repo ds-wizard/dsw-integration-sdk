@@ -20,6 +20,14 @@ export default class Importer extends Integration {
         })
     }
 
+    setItemSelectReply(path, value) {
+        this._events.push({
+            type: 'ReplyItemSelect',
+            path: path.join('.'),
+            value: value
+        })
+    }
+
     setIntegrationReply(path, value, id) {
         this._events.push({
             type: 'ReplyIntegration',
