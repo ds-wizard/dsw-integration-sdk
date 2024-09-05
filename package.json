@@ -1,6 +1,6 @@
 {
   "name": "@ds-wizard/integration-sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An SDK for building integrations for the Data Stewardship Wizard",
   "main": "lib/index.js",
   "directories": {
@@ -25,7 +25,9 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
   },
-  "files": ["lib/*"],
+  "files": [
+    "lib/*"
+  ],
   "bugs": {
     "url": "https://github.com/ds-wizard/dsw-integration-sdk/issues"
   },

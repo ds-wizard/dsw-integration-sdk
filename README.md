@@ -204,7 +204,8 @@ There are examples in this repository. The [simple](examples/integration-widget/
 
 | Integration SDK Version | DSW Version from | DSW Version to |
 | --- | --- | --- |
-| `1.0.0` | `4.1` | `latest` |
+| `1.1.0` | `4.10` | `latest` |
+| `1.0.0` | `4.1` | `4.9` |
 
 
 
