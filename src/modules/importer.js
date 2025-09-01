@@ -28,9 +28,18 @@ export default class Importer extends Integration {
         })
     }
 
-    setIntegrationReply(path, value, id) {
+    setIntegrationReply(path, value, raw) {
         this._events.push({
             type: 'ReplyIntegration',
+            path: path.join('.'),
+            value: value,
+            raw: raw
+        })
+    }
+
+    setIntegrationLegacyReply(path, value, id) {
+        this._events.push({
+            type: 'ReplyIntegrationLegacy',
             path: path.join('.'),
             value: value,
             id: id

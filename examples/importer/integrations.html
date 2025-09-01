@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/lib/index.js"></script>
+    <style>
+        .wrapper {
+            padding: 2rem;
+            margin: 2rem;
+            border: .25rem dashed var(--bs-primary);
+            border-radius: var(--bs-border-radius);
+        }
+    </style>
+    <title>Importer Integration Examples</title>
+</head>
+
+<body>
+    <div class="wrapper text-center">
+        <button id="import" class="btn btn-primary">Import</button>
+    </div>
+    <script>
+        const importer = new dsw.Importer()
+
+        importer
+            .init()
+            .then(() => {
+                const importButton = document.getElementById('import')
+                importButton.addEventListener('click', () => {
+                    const chapterUuid = '80f61c80-6086-4aaf-836a-c753c2ca5662'
+                    const newIntegrationQuestionUuid = 'de51787b-31ba-4bef-aa3f-55b7d1507419'
+                    const legacyIntegrationQuestionUuid = '19ffe94b-8171-4753-b0b6-4e79edd52681'
+
+                    importer.setIntegrationReply(
+                        [chapterUuid, newIntegrationQuestionUuid],
+                        'Test',
+                        {id: 'test', name: 'Test'}
+                    )
+
+                    importer.setIntegrationLegacyReply(
+                        [chapterUuid, legacyIntegrationQuestionUuid],
+                        'Test Legacy',
+                        'https://ror.org/123456789'
+                    )
+
+                    // Send the replies
+                    importer.send()
+                })
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    </script>
+</body>
+
+</html>

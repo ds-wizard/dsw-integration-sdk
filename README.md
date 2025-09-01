@@ -105,7 +105,7 @@ importer.init()
         importer.setIntegrationReply(
             questionPath,
             'Czech Technical University in Prague',
-            'https://ror.org/03kqpb082'
+            { name: 'Czech Technical University in Prague', url: 'https://ror.org/03kqpb082' },
         )
 
         // Send the replies back to DSW
@@ -204,7 +204,8 @@ There are examples in this repository. The [simple](examples/integration-widget/
 
 | Integration SDK Version | DSW Version from | DSW Version to |
 | --- | --- | --- |
-| `1.1.0` | `4.10` | `latest` |
+| `2.0.0` | `4.22` | `latest` |
+| `1.1.0` | `4.10` | `4.21` |
 | `1.0.0` | `4.1` | `4.9` |
 
 
