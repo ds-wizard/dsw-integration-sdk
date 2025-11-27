@@ -22,6 +22,10 @@ export default class Integration {
                     }
 
                     if (options.useWizardStyles && event.data.styleUrl) {
+                        if (event.data.theme) {
+                            this._applyTheme(event.data.theme)
+                        }
+
                         this._loadWizardStyles(event.data.styleUrl, () => {
                             resolve(event.data.data)
                         })
@@ -40,6 +44,10 @@ export default class Integration {
     _resizeWindow({ width, height }) {
         window.resizeTo(Math.min(width, screen.width), Math.min(height, screen.height))
         window.moveTo(screen.width / 2 - width / 2, screen.height / 2  - height / 2)
+    }
+
+    _applyTheme(theme) {
+        document.body.setAttribute('style', theme)
     }
 
     _loadWizardStyles(styleUrl, cb) {
